@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hamisi Studio — Hamisi Sarah | Wildlife &amp; Nature Photography</title>
+<meta name="description" content="Hamisi Sarah — wildlife, wild places, and stories from the natural world. Fine-art prints, licensing and editorial photography.">
+<style>
+  :root{
+    --olive:#556B2F;
+    --olive-dark:#3C4E20;
+    --olive-deep:#2C3A18;
+    --olive-light:#7C9153;
+    --olive-mist:#DDE3CC;
+    --white:#FFFFFF;
+    --cream:#FAFAF6;
+    --line:#D8DACB;
+    --ink:#232519;
+    --ink-soft:#5B5D4E;
+    --font: Verdana, Geneva, "DejaVu Sans", sans-serif;
+    --maxw:1240px;
+    --gap:22px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:var(--font);
+    color:var(--ink);
+    background:var(--white);
+    -webkit-font-smoothing:antialiased;
+    font-size:15px;
+    line-height:1.6;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  ul{margin:0;padding:0;list-style:none;}
+  h1,h2,h3,h4{font-family:var(--font);margin:0;font-weight:bold;}
+  button{font-family:var(--font);cursor:pointer;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+
+  /* ---------- Field-tag signature element ---------- */
+  .field-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--olive-dark);
+    font-weight:bold;
+  }
+  .field-tag::before{
+    content:"";
+    width:7px;height:7px;
+    border:1.5px solid var(--olive-dark);
+    border-radius:50%;
+    display:inline-block;
+  }
+  .eyebrow{
+    display:flex;align-items:center;gap:14px;margin-bottom:14px;
+  }
+  .eyebrow .field-tag{white-space:nowrap;}
+  .eyebrow .rule{flex:1;height:1px;background:var(--line);}
+
+  .section-head{margin-bottom:44px;max-width:640px;}
+  .section-head h2{font-size:30px;letter-spacing:.03em;text-transform:uppercase;line-height:1.25;}
+  .section-head p{color:var(--ink-soft);margin-top:12px;font-size:15px;}
+
+  section{padding:96px 0;}
+  .alt{background:var(--cream);}
+
+  /* ---------- Header ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:200;
+    padding:20px 0;
+    transition:background .35s ease, padding .35s ease, box-shadow .35s ease;
+  }
+  header .wrap{display:flex;align-items:center;justify-content:space-between;}
+  header.solid{
+    background:rgba(255,255,255,.96);
+    padding:12px 0;
+    box-shadow:0 1px 0 var(--line);
+    backdrop-filter:blur(6px);
+  }
+  .brand{display:flex;flex-direction:column;line-height:1.05;}
+  .brand .name{
+    font-size:19px;font-weight:bold;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--white);
+  }
+  header.solid .brand .name{color:var(--olive-deep);}
+  .brand .studio{
+    font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--olive-mist);margin-top:3px;
+  }
+  header.solid .brand .studio{color:var(--olive-light);}
+
+  nav.primary-nav{display:flex;gap:30px;align-items:center;}
+  nav.primary-nav a{
+    font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--white);
+    padding-bottom:4px;border-bottom:1px solid transparent;
+    transition:border-color .2s ease, color .2s ease;
+  }
+  header.solid nav.primary-nav a{color:var(--ink);}
+  nav.primary-nav a:hover{border-color:var(--olive-light);}
+  header.solid nav.primary-nav a:hover{color:var(--olive-dark);border-color:var(--olive-dark);}
+
+  .nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:0;padding:6px;}
+  .nav-toggle span{width:24px;height:2px;background:var(--white);}
+  header.solid .nav-toggle span{background:var(--ink);}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    height:100vh;
+    min-height:620px;
+    display:flex;
+    align-items:flex-end;
+    color:var(--white);
+    background:
+      linear-gradient(180deg, rgba(30,35,18,.35) 0%, rgba(20,24,12,.15) 35%, rgba(15,18,10,.85) 100%),
+      url('https://picsum.photos/seed/hamisi-hero-elephant/1800/1200') center/cover no-repeat;
+  }
+  .hero-inner{padding-bottom:90px;max-width:720px;}
+  .hero .field-tag{color:var(--olive-mist);border-color:var(--olive-mist);}
+  .hero .field-tag::before{border-color:var(--olive-mist);}
+  .hero h1{
+    font-size:clamp(40px,6vw,72px);
+    text-transform:uppercase;
+    letter-spacing:.04em;
+    margin:18px 0 16px;
+  }
+  .hero .tagline{font-size:17px;color:#EDEFE2;max-width:520px;margin-bottom:34px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:14px 26px;
+    border:1.5px solid var(--white);
+    font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:bold;
+    color:var(--white);
+    transition:background .25s ease, color .25s ease, border-color .25s ease;
+  }
+  .btn:hover{background:var(--white);color:var(--olive-deep);}
+  .btn.solid{background:var(--olive);border-color:var(--olive);color:var(--white);}
+  .btn.solid:hover{background:var(--olive-dark);border-color:var(--olive-dark);color:var(--white);}
+  .btn.dark{border-color:var(--olive-deep);color:var(--olive-deep);}
+  .btn.dark:hover{background:var(--olive-deep);color:var(--white);}
+  .scroll-cue{
+    position:absolute;bottom:26px;right:28px;
+    writing-mode:vertical-rl;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--olive-mist);
+    display:flex;align-items:center;gap:10px;
+  }
+  .scroll-cue::after{content:"";width:1px;height:44px;background:var(--olive-mist);}
+
+  /* ---------- Portfolio / Gallery ---------- */
+  .filter-bar{
+    display:flex;flex-wrap:wrap;gap:6px 26px;margin-bottom:38px;border-bottom:1px solid var(--line);padding-bottom:22px;
+  }
+  .filter-btn{
+    background:none;border:0;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);
+    padding:6px 0;border-bottom:2px solid transparent;
+  }
+  .filter-btn.active,.filter-btn:hover{color:var(--olive-deep);border-color:var(--olive);}
+
+  .masonry{
+    column-count:4;column-gap:var(--gap);
+  }
+  @media(max-width:1080px){.masonry{column-count:3;}}
+  @media(max-width:760px){.masonry{column-count:2;}}
+  @media(max-width:480px){.masonry{column-count:1;}}
+
+  .g-item{
+    break-inside:avoid;margin-bottom:var(--gap);position:relative;overflow:hidden;cursor:pointer;
+    background:var(--olive-mist);
+    opacity:0;transform:translateY(16px);
+    transition:opacity .6s ease, transform .6s ease;
+  }
+  .g-item.in{opacity:1;transform:translateY(0);}
+  .g-item img{width:100%;display:block;transition:transform .6s ease;}
+  .g-item:hover img{transform:scale(1.045);}
+  .g-cap{
+    position:absolute;left:0;right:0;bottom:0;padding:14px 16px 12px;
+    background:linear-gradient(0deg, rgba(20,24,12,.82), rgba(20,24,12,0));
+    color:var(--white);
+    opacity:0;transition:opacity .25s ease;
+  }
+  .g-item:hover .g-cap{opacity:1;}
+  .g-cap .t{font-size:13px;font-weight:bold;letter-spacing:.03em;}
+  .g-cap .l{font-size:11px;color:var(--olive-mist);letter-spacing:.06em;text-transform:uppercase;margin-top:3px;}
+
+  .gallery-more{text-align:center;margin-top:44px;}
+
+  /* ---------- Lightbox ---------- */
+  .lightbox{
+    position:fixed;inset:0;z-index:500;background:rgba(16,19,10,.97);
+    display:none;align-items:center;justify-content:center;padding:26px;
+  }
+  .lightbox.open{display:flex;}
+  .lb-stage{max-width:1100px;width:100%;display:flex;flex-direction:column;align-items:center;}
+  .lb-stage img{max-height:66vh;width:auto;margin:0 auto;box-shadow:0 20px 60px rgba(0,0,0,.5);}
+  .lb-info{width:100%;max-width:760px;color:var(--olive-mist);margin-top:22px;border-top:1px solid rgba(255,255,255,.15);padding-top:16px;}
+  .lb-info .t{color:var(--white);font-size:16px;font-weight:bold;}
+  .lb-info .meta{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:10px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--olive-light);}
+  .lb-info .meta span b{color:var(--olive-mist);font-weight:normal;text-transform:none;letter-spacing:0;}
+  .lb-close,.lb-prev,.lb-next{
+    position:absolute;background:none;border:0;color:var(--white);opacity:.75;
+  }
+  .lb-close{top:22px;right:28px;font-size:26px;}
+  .lb-prev,.lb-next{top:50%;transform:translateY(-50%);font-size:34px;padding:10px;}
+  .lb-prev{left:14px;}.lb-next{right:14px;}
+  .lb-close:hover,.lb-prev:hover,.lb-next:hover{opacity:1;color:var(--olive-mist);}
+  .lb-count{position:absolute;top:26px;left:28px;color:var(--olive-mist);font-size:11px;letter-spacing:.14em;text-transform:uppercase;}
+
+  /* ---------- Stories ---------- */
+  .stories-grid{display:grid;grid-template-columns:1fr 1fr;gap:34px;}
+  @media(max-width:820px){.stories-grid{grid-template-columns:1fr;}}
+  .story-card{position:relative;overflow:hidden;background:var(--olive-deep);color:var(--white);}
+  .story-card img{width:100%;height:340px;object-fit:cover;opacity:.72;transition:transform .6s ease, opacity .4s ease;}
+  .story-card:hover img{transform:scale(1.05);opacity:.55;}
+  .story-body{position:absolute;left:0;right:0;bottom:0;padding:26px;}
+  .story-body .field-tag{color:var(--olive-mist);border-color:var(--olive-mist);}
+  .story-body h3{font-size:22px;margin:12px 0 8px;text-transform:uppercase;letter-spacing:.03em;}
+  .story-body p{font-size:13px;color:#E3E6D6;max-width:420px;margin-bottom:14px;}
+  .story-link{font-size:11px;letter-spacing:.14em;text-transform:uppercase;border-bottom:1px solid var(--olive-mist);padding-bottom:2px;}
+
+  /* ---------- About ---------- */
+  .about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:start;}
+  @media(max-width:820px){.about-grid{grid-template-columns:1fr;gap:36px;}}
+  .about-grid img{width:100%;}
+  .about-text h2{font-size:30px;text-transform:uppercase;letter-spacing:.03em;margin-bottom:20px;}
+  .about-text p{margin-bottom:16px;color:var(--ink-soft);}
+  .specialties{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;}
+  .chip{border:1px solid var(--olive);color:var(--olive-dark);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:7px 14px;}
+
+  /* ---------- Conservation ---------- */
+  .ethics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:10px;}
+  @media(max-width:820px){.ethics-grid{grid-template-columns:1fr;}}
+  .ethic-card{border-top:2px solid var(--olive);padding-top:16px;}
+  .ethic-card .num{font-size:11px;letter-spacing:.14em;color:var(--olive-light);text-transform:uppercase;}
+  .ethic-card h4{font-size:16px;margin:10px 0 8px;text-transform:uppercase;letter-spacing:.02em;}
+  .ethic-card p{color:var(--ink-soft);font-size:13.5px;}
+  .org-strip{display:flex;flex-wrap:wrap;gap:14px;margin-top:44px;}
+  .org-pill{background:var(--olive-mist);color:var(--olive-deep);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:9px 16px;}
+
+  /* ---------- Prints / Licensing ---------- */
+  .license-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+  @media(max-width:900px){.license-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:520px){.license-grid{grid-template-columns:1fr;}}
+  .license-card{background:var(--white);border:1px solid var(--line);padding:26px 22px;}
+  .license-card .num{font-size:11px;color:var(--olive-light);letter-spacing:.14em;text-transform:uppercase;}
+  .license-card h4{font-size:16px;margin:12px 0 10px;text-transform:uppercase;}
+  .license-card p{font-size:13px;color:var(--ink-soft);margin-bottom:16px;}
+  .license-card a{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--olive-dark);border-bottom:1px solid var(--olive-dark);padding-bottom:2px;}
+
+  /* ---------- Publications ---------- */
+  .pub-table{width:100%;border-collapse:collapse;margin-top:10px;}
+  .pub-table tr{border-bottom:1px solid var(--line);}
+  .pub-table td{padding:16px 8px;font-size:14px;vertical-align:top;}
+  .pub-table td.yr{color:var(--olive-light);font-size:12px;letter-spacing:.1em;width:90px;}
+  .pub-table td.what{font-weight:bold;}
+  .pub-table td.tag{color:var(--ink-soft);font-size:12px;text-align:right;text-transform:uppercase;letter-spacing:.06em;}
+
+  /* ---------- Journal ---------- */
+  .journal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  @media(max-width:900px){.journal-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:600px){.journal-grid{grid-template-columns:1fr;}}
+  .journal-card img{width:100%;height:190px;object-fit:cover;}
+  .journal-card .jc-body{padding-top:14px;}
+  .journal-card .field-tag{font-size:10px;}
+  .journal-card h4{font-size:16px;margin:10px 0 8px;}
+  .journal-card p{font-size:13px;color:var(--ink-soft);}
+
+  /* ---------- Contact ---------- */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;}
+  @media(max-width:820px){.contact-grid{grid-template-columns:1fr;gap:36px;}}
+  .contact-list li{border-top:1px solid var(--line);padding:16px 0;display:flex;justify-content:space-between;font-size:13.5px;}
+  .contact-list li:last-child{border-bottom:1px solid var(--line);}
+  .contact-list li span:first-child{color:var(--ink-soft);text-transform:uppercase;letter-spacing:.06em;font-size:11.5px;}
+  form{display:flex;flex-direction:column;gap:16px;}
+  .field label{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px;}
+  .field input,.field select,.field textarea{
+    width:100%;border:1px solid var(--line);background:var(--cream);padding:12px 14px;font-family:var(--font);font-size:13.5px;color:var(--ink);
+  }
+  .field textarea{resize:vertical;min-height:110px;}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--olive);outline-offset:1px;}
+  .form-msg{font-size:12.5px;color:var(--olive-dark);display:none;margin-top:2px;}
+  .form-msg.show{display:block;}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--olive-deep);color:#DCE0CB;padding:64px 0 28px;}
+  .footer-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.14);}
+  .footer-brand .name{font-size:20px;letter-spacing:.08em;text-transform:uppercase;color:var(--white);font-weight:bold;}
+  .footer-brand p{margin-top:10px;max-width:260px;font-size:13px;color:#B9C0A1;}
+  .footer-links h5{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8FA06A;margin-bottom:14px;}
+  .footer-links li{margin-bottom:9px;font-size:13px;}
+  .footer-links a:hover{color:var(--white);}
+  .news-form{display:flex;gap:0;margin-top:14px;max-width:300px;}
+  .news-form input{flex:1;border:1px solid rgba(255,255,255,.25);background:transparent;color:var(--white);padding:11px 12px;font-family:var(--font);font-size:12.5px;}
+  .news-form button{border:1px solid var(--white);background:var(--white);color:var(--olive-deep);padding:11px 16px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:bold;}
+  .footer-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;padding-top:24px;font-size:12px;color:#93A16E;}
+  .footer-bottom a:hover{color:var(--white);}
+  .social-row{display:flex;gap:16px;}
+
+  ::selection{background:var(--olive);color:var(--white);}
+  :focus-visible{outline:2px solid var(--olive);outline-offset:2px;}
+
+  @media(max-width:900px){
+    nav.primary-nav{position:fixed;top:0;right:0;height:100vh;width:78%;max-width:340px;background:var(--olive-deep);
+      flex-direction:column;justify-content:center;align-items:flex-start;gap:26px;padding:40px;
+      transform:translateX(100%);transition:transform .35s ease;}
+    nav.primary-nav.open{transform:translateX(0);}
+    nav.primary-nav a{color:var(--white);font-size:15px;}
+    .nav-toggle{display:flex;}
+  }
+  @media(max-width:600px){
+    section{padding:64px 0;}
+    .hero-inner{padding-bottom:60px;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{transition-duration:.001ms !important;animation-duration:.001ms !important;}
+  }
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <div class="wrap">
+    <a href="#top" class="brand">
+      <span class="name">Hamisi Sarah</span>
+      <span class="studio">Hamisi Studio</span>
+    </a>
+    <nav class="primary-nav" id="primaryNav">
+      <a href="#portfolio">Portfolio</a>
+      <a href="#stories">Stories</a>
+      <a href="#about">About</a>
+      <a href="#conservation">Conservation</a>
+      <a href="#prints">Prints &amp; Licensing</a>
+      <a href="#journal">Journal</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="wrap hero-inner">
+    <span class="field-tag">Nairobi &amp; the East African Rift · Est. Field Archive</span>
+    <h1>Hamisi Sarah</h1>
+    <p class="tagline">Wildlife, wild places, and stories from the natural world.</p>
+    <a href="#portfolio" class="btn">Explore the Portfolio</a>
+  </div>
+  <span class="scroll-cue">Scroll</span>
+</section>
+
+<!-- ================= PORTFOLIO / GALLERY ================= -->
+<section id="portfolio">
+  <div class="wrap">
+    <div class="eyebrow"><span class="field-tag">Fig. 01 — The Archive</span><span class="rule"></span></div>
+    <div class="section-head">
+      <h2>Portfolio</h2>
+      <p>A working archive of wildlife, wild places, and the small wonders in between — organised by collection. Select a plate to open it full-screen with field notes.</p>
+    </div>
+
+    <div class="filter-bar" id="filterBar">
+      <button class="filter-btn active" data-filter="all">All Work</button>
+      <button class="filter-btn" data-filter="wildlife">Wildlife</button>
+      <button class="filter-btn" data-filter="birds">Birds</button>
+      <button class="filter-btn" data-filter="mammals">Mammals</button>
+      <button class="filter-btn" data-filter="marine">Marine Life</button>
+      <button class="filter-btn" data-filter="landscapes">Landscapes &amp; Habitats</button>
+      <button class="filter-btn" data-filter="macro">Macro &amp; Small Wonders</button>
+      <button class="filter-btn" data-filter="conservation">Conservation Stories</button>
+      <button class="filter-btn" data-filter="expeditions">Featured Expeditions</button>
+    </div>
+
+    <div class="masonry" id="masonry"></div>
+  </div>
+</section>
+
+<!-- ================= LIGHTBOX ================= -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <span class="lb-count" id="lbCount"></span>
+  <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
+  <button class="lb-prev" id="lbPrev" aria-label="Previous image">&#8249;</button>
+  <div class="lb-stage">
+    <img id="lbImage" src="" alt="">
+    <div class="lb-info">
+      <div class="t" id="lbTitle"></div>
+      <div class="meta">
+        <span><b id="lbLocation"></b></span>
+        <span><b id="lbSpecies"></b></span>
+        <span><b id="lbExif"></b></span>
+      </div>
+    </div>
+  </div>
+  <button class="lb-next" id="lbNext" aria-label="Next image">&#8250;</button>
+</div>
+
+<!-- ================= FEATURED STORIES ================= -->
+<section class="alt" id="stories">
+  <div class="wrap">
+    <div class="eyebrow"><span class="field-tag">Fig. 02 — Photo Essays</span><span class="rule"></span></div>
+    <div class="section-head">
+      <h2>Featured Stories</h2>
+      <p>Complete visual narratives from the field — expeditions told as a sequence, not a single frame.</p>
+    </div>
+
+    <div class="stories-grid" id="storiesGrid"></div>
+  </div>
+</section>
+
+<!-- Story viewer reuses the lightbox markup/logic via JS -->
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="wrap about-grid">
+    <img src="https://picsum.photos/seed/hamisi-portrait-field/760/920" alt="Hamisi Sarah in the field with a camera and telephoto lens">
+    <div class="about-text">
+      <div class="eyebrow"><span class="field-tag">Fig. 03 — The Photographer</span><span class="rule"></span></div>
+      <h2>About Hamisi</h2>
+      <p>Hamisi Sarah is a wildlife and nature photographer based between Nairobi and the wider East African Rift, with a decade spent following migrations, tide lines, and the quiet hours before first light. Her work moves between the epic — a herd crossing open plain — and the overlooked, the beetle on a leaf, the frost on a feather.</p>
+      <p>Her approach is patient rather than opportunistic: long observation before the shutter, and a refusal to stage or bait a scene. She believes a photograph of an animal is only honest if the animal never knew it was being photographed.</p>
+      <p>Hamisi's work has taken her across savanna, coral reef, cloud forest, and Arctic coastline, always returning to one question — what does this place need us to notice, before it changes.</p>
+      <div class="specialties">
+        <span class="chip">Wildlife Behaviour</span>
+        <span class="chip">Aerial &amp; Landscape</span>
+        <span class="chip">Macro</span>
+        <span class="chip">Marine</span>
+        <span class="chip">Long-form Photo Essays</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONSERVATION & ETHICS ================= -->
+<section class="alt" id="conservation">
+  <div class="wrap">
+    <div class="eyebrow"><span class="field-tag">Fig. 04 — Field Ethics</span><span class="rule"></span></div>
+    <div class="section-head">
+      <h2>Conservation &amp; Ethics</h2>
+      <p>A photograph should never cost the subject its safety, its habitat, or its trust in a landscape. These are the working principles behind every image in this archive.</p>
+    </div>
+
+    <div class="ethics-grid">
+      <div class="ethic-card">
+        <div class="num">Principle 01</div>
+        <h4>Distance Over Access</h4>
+        <p>Long lenses and long waits, never bait, calls, or drones near nesting or denning animals. The animal's behaviour is never altered to get a frame.</p>
+      </div>
+      <div class="ethic-card">
+        <div class="num">Principle 02</div>
+        <h4>Local Guidance First</h4>
+        <p>Every expedition works with local rangers, guides, and community conservancies, whose knowledge of terrain and wildlife sets the terms of the visit.</p>
+      </div>
+      <div class="ethic-card">
+        <div class="num">Principle 03</div>
+        <h4>Context Over Spectacle</h4>
+        <p>Captions favour honest context — location, season, threat status — over sensational framing that can misrepresent an animal or a place.</p>
+      </div>
+      <div class="ethic-card">
+        <div class="num">Principle 04</div>
+        <h4>No Location Data on Vulnerable Species</h4>
+        <p>Precise coordinates are withheld for endangered or poaching-sensitive species; only the region is shared.</p>
+      </div>
+      <div class="ethic-card">
+        <div class="num">Principle 05</div>
+        <h4>Give Back to the Ground You Stand On</h4>
+        <p>A share of print and licensing proceeds is directed to the conservancies and reserves where the images were made.</p>
+      </div>
+      <div class="ethic-card">
+        <div class="num">Principle 06</div>
+        <h4>Habitat Before Highlight</h4>
+        <p>Stories about threatened habitats are pursued even when the resulting images are quiet, because the record matters more than the reel.</p>
+      </div>
+    </div>
+
+    <div class="org-strip">
+      <span class="org-pill">Amboseli Trust for Elephants</span>
+      <span class="org-pill">Coral Reef Alliance</span>
+      <span class="org-pill">Rift Valley Bird Trust</span>
+      <span class="org-pill">Arctic Habitat Watch</span>
+      <span class="org-pill">Northern Rangelands Trust</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRINTS / LICENSING ================= -->
+<section id="prints">
+  <div class="wrap">
+    <div class="eyebrow"><span class="field-tag">Fig. 05 — Prints &amp; Licensing</span><span class="rule"></span></div>
+    <div class="section-head">
+      <h2>Prints &amp; Licensing</h2>
+      <p>Fine-art prints, editorial and commercial licensing, and publishing enquiries — each handled individually.</p>
+    </div>
+
+    <div class="license-grid">
+      <div class="license-card">
+        <div class="num">01</div>
+        <h4>Fine-Art Prints</h4>
+        <p>Archival pigment prints on cotton rag, available in limited runs and made to order in a range of sizes.</p>
+        <a href="#contact">Enquire about prints →</a>
+      </div>
+      <div class="license-card">
+        <div class="num">02</div>
+        <h4>Image Licensing</h4>
+        <p>Single-use and extended licences for digital and print placements, priced by usage, territory, and duration.</p>
+        <a href="#contact">Request a licence →</a>
+      </div>
+      <div class="license-card">
+        <div class="num">03</div>
+        <h4>Editorial &amp; Commercial</h4>
+        <p>Assignment and stock work for magazines, campaigns, conservation reports, and NGO communications.</p>
+        <a href="#contact">Discuss a project →</a>
+      </div>
+      <div class="license-card">
+        <div class="num">04</div>
+        <h4>Publishing</h4>
+        <p>Photo-essay and book collaborations, from field-note contributions to full monograph projects.</p>
+        <a href="#contact">Pitch a publication →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PUBLICATIONS / EXHIBITIONS / CLIENTS ================= -->
+<section class="alt" id="publications">
+  <div class="wrap">
+    <div class="eyebrow"><span class="field-tag">Fig. 06 — Recognition</span><span class="rule"></span></div>
+    <div class="section-head">
+      <h2>Publications, Exhibitions &amp; Clients</h2>
+      <p>Selected features, exhibitions, and organisations Hamisi has worked with.</p>
+    </div>
+
+    <table class="pub-table">
+      <tr><td class="yr">2026</td><td class="what">Solo Exhibition — "The Last Light," Nairobi Gallery of Photography</td><td class="tag">Exhibition</td></tr>
+      <tr><td class="yr">2025</td><td class="what">Cover Feature — Rift Valley Bird Migrations</td><td class="tag">Editorial</td></tr>
+      <tr><td class="yr">2025</td><td class="what">Commissioned Series — Amboseli Trust for Elephants Annual Report</td><td class="tag">Conservation</td></tr>
+      <tr><td class="yr">2024</td><td class="what">Group Exhibition — "Coastlines," Mombasa Cultural Centre</td><td class="tag">Exhibition</td></tr>
+      <tr><td class="yr">2024</td><td class="what">Editorial Feature — Coral Reef Alliance Field Journal</td><td class="tag">Editorial</td></tr>
+      <tr><td class="yr">2023</td><td class="what">Finalist — East African Nature Photography Awards</td><td class="tag">Award</td></tr>
+      <tr><td class="yr">2022</td><td class="what">Commercial Client — Northern Rangelands Trust Brand Campaign</td><td class="tag">Commercial</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ================= JOURNAL / FIELD NOTES ================= -->
+<section id="journal">
+  <div class="wrap">
+    <div class="eyebrow"><span class="field-tag">Fig. 07 — Field Notes</span><span class="rule"></span></div>
+    <div class="section-head">
+      <h2>Journal</h2>
+      <p>Dispatches from recent expeditions — behind the scenes, field observations, and notes on the places in between.</p>
+    </div>
+
+    <div class="journal-grid" id="journalGrid"></div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="alt" id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <div class="eyebrow"><span class="field-tag">Fig. 08 — Contact</span><span class="rule"></span></div>
+      <h2 style="font-size:30px;text-transform:uppercase;letter-spacing:.03em;margin-bottom:20px;">Get in Touch</h2>
+      <p style="color:var(--ink-soft);margin-bottom:26px;max-width:420px;">For prints, licensing, assignments, or collaboration — reach out directly, or use the form.</p>
+      <ul class="contact-list">
+        <li><span>General Enquiries</span><span>hello@hamisistudio.com</span></li>
+        <li><span>Print Requests</span><span>prints@hamisistudio.com</span></li>
+        <li><span>Licensing</span><span>licensing@hamisistudio.com</span></li>
+        <li><span>Assignments</span><span>bookings@hamisistudio.com</span></li>
+        <li><span>Studio</span><span>Nairobi, Kenya</span></li>
+      </ul>
+      <div class="social-row" style="margin-top:26px;">
+        <a href="#" aria-label="Instagram" style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid var(--ink);">Instagram</a>
+        <a href="#" aria-label="X / Twitter" style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid var(--ink);">X</a>
+        <a href="#" aria-label="Behance" style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid var(--ink);">Behance</a>
+      </div>
+    </div>
+
+    <form id="contactForm">
+      <div class="field">
+        <label for="cf-name">Name</label>
+        <input id="cf-name" name="name" type="text" required>
+      </div>
+      <div class="field">
+        <label for="cf-email">Email</label>
+        <input id="cf-email" name="email" type="email" required>
+      </div>
+      <div class="field">
+        <label for="cf-reason">Enquiry Type</label>
+        <select id="cf-reason" name="reason">
+          <option>General Enquiry</option>
+          <option>Print Request</option>
+          <option>Licensing Enquiry</option>
+          <option>Assignment / Collaboration</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="cf-message">Message</label>
+        <textarea id="cf-message" name="message" required></textarea>
+      </div>
+      <button type="submit" class="btn solid" style="align-self:flex-start;">Send Message</button>
+      <p class="form-msg" id="formMsg">Thank you — your message has been noted. Hamisi Studio will reply within a few days.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="name">Hamisi Sarah</div>
+        <p>Wildlife, wild places, and stories from the natural world. Based in Nairobi, working across East Africa and beyond.</p>
+      </div>
+      <div class="footer-links">
+        <h5>Explore</h5>
+        <ul>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#stories">Stories</a></li>
+          <li><a href="#conservation">Conservation</a></li>
+          <li><a href="#journal">Journal</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h5>Studio</h5>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#prints">Prints &amp; Licensing</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h5>Field Dispatch</h5>
+        <p style="font-size:12.5px;color:#B9C0A1;max-width:250px;">Occasional notes on new work and expeditions. No spam.</p>
+        <form class="news-form" id="newsForm">
+          <input type="email" placeholder="Your email" required aria-label="Email for newsletter">
+          <button type="submit">Join</button>
+        </form>
+        <p class="form-msg" id="newsMsg" style="color:#B9C0A1;">Thank you — you're on the list.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Hamisi Studio. All rights reserved.</span>
+      <div class="social-row">
+        <a href="#">Instagram</a><a href="#">X</a><a href="#">Behance</a>
+      </div>
+      <a href="#">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------------- Header scroll state ---------------- */
+  var header = document.getElementById('siteHeader');
+  function onScroll(){
+    if(window.scrollY > 60){ header.classList.add('solid'); }
+    else { header.classList.remove('solid'); }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  /* ---------------- Mobile nav ---------------- */
+  var navToggle = document.getElementById('navToggle');
+  var primaryNav = document.getElementById('primaryNav');
+  navToggle.addEventListener('click', function(){
+    var isOpen = primaryNav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+  });
+  primaryNav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ primaryNav.classList.remove('open'); });
+  });
+
+  /* ---------------- Gallery data ---------------- */
+  var CATS = {
+    wildlife:'Wildlife', birds:'Birds', mammals:'Mammals', marine:'Marine Life',
+    landscapes:'Landscapes & Habitats', macro:'Macro & Small Wonders',
+    conservation:'Conservation Stories', expeditions:'Featured Expeditions'
+  };
+
+  var gallery = [
+    {cat:'wildlife', seed:'lion-savanna-01', h:760, title:'Watching the Herd', location:'Maasai Mara, Kenya', species:'Panthera leo', exif:'600mm · f/5.6 · 1/1000s'},
+    {cat:'birds', seed:'flamingo-lake-02', h:560, title:'Salt Lake Gathering', location:'Lake Nakuru, Kenya', species:'Phoeniconaias minor', exif:'400mm · f/6.3 · 1/2000s'},
+    {cat:'mammals', seed:'elephant-dust-03', h:900, title:'Dust and Distance', location:'Amboseli, Kenya', species:'Loxodonta africana', exif:'300mm · f/4 · 1/1250s'},
+    {cat:'marine', seed:'reef-fish-04', h:640, title:'Reef at First Light', location:'Watamu Marine Park, Kenya', species:'Mixed reef assemblage', exif:'Housing · 16mm · f/8'},
+    {cat:'landscapes', seed:'rift-valley-05', h:820, title:'The Rift at Dawn', location:'Great Rift Valley, Kenya', species:'—', exif:'24mm · f/11 · 1/60s'},
+    {cat:'macro', seed:'dew-leaf-06', h:520, title:'Beaded Leaf', location:'Aberdare Forest, Kenya', species:'Unidentified orb weaver', exif:'100mm macro · f/9 · 1/200s'},
+    {cat:'conservation', seed:'ranger-patrol-07', h:700, title:'Dawn Patrol', location:'Northern Rangelands, Kenya', species:'—', exif:'85mm · f/2.8 · 1/500s'},
+    {cat:'expeditions', seed:'arctic-ice-08', h:940, title:'Edge of the Floe', location:'Svalbard, Norway', species:'—', exif:'35mm · f/10 · 1/320s'},
+    {cat:'birds', seed:'eagle-flight-09', h:680, title:'Rift Valley Raptor', location:'Lake Naivasha, Kenya', species:'Haliaeetus vocifer', exif:'500mm · f/5.6 · 1/2500s'},
+    {cat:'wildlife', seed:'leopard-tree-10', h:860, title:'Held in the Branches', location:'Mara Triangle, Kenya', species:'Panthera pardus', exif:'500mm · f/4.5 · 1/800s'},
+    {cat:'mammals', seed:'giraffe-acacia-11', h:600, title:'Acacia Line', location:'Tsavo East, Kenya', species:'Giraffa camelopardalis', exif:'200mm · f/7.1 · 1/640s'},
+    {cat:'marine', seed:'turtle-glide-12', h:760, title:'Slow Water', location:'Diani Reef, Kenya', species:'Chelonia mydas', exif:'Housing · 24mm · f/9'},
+    {cat:'landscapes', seed:'crater-mist-13', h:540, title:'Crater Mist', location:'Ngorongoro, Tanzania', species:'—', exif:'50mm · f/13 · 1/30s'},
+    {cat:'macro', seed:'mantis-detail-14', h:900, title:'Praying Stillness', location:'Kakamega Forest, Kenya', species:'Mantis religiosa', exif:'100mm macro · f/11 · 1/160s'},
+    {cat:'conservation', seed:'snare-removal-15', h:640, title:'The Removal', location:'Northern Rangelands, Kenya', species:'—', exif:'35mm · f/4 · 1/400s'},
+    {cat:'expeditions', seed:'coral-expedition-16', h:560, title:'Below the Line', location:'Watamu Marine Park, Kenya', species:'—', exif:'Housing · 16mm · f/8'},
+    {cat:'birds', seed:'hornbill-perch-17', h:780, title:'Morning Perch', location:'Samburu, Kenya', species:'Bycanistes brevis', exif:'400mm · f/5.6 · 1/1000s'},
+    {cat:'wildlife', seed:'buffalo-mud-18', h:520, title:'Mud and Muscle', location:'Mara River, Kenya', species:'Syncerus caffer', exif:'300mm · f/5.6 · 1/1000s'},
+    {cat:'mammals', seed:'cheetah-run-19', h:700, title:'Full Stride', location:'Maasai Mara, Kenya', species:'Acinonyx jubatus', exif:'500mm · f/4 · 1/3200s'},
+    {cat:'landscapes', seed:'baobab-sunset-20', h:900, title:'Baobab Silhouette', location:'Tarangire, Tanzania', species:'—', exif:'35mm · f/9 · 1/125s'},
+    {cat:'marine', seed:'dolphin-pod-21', h:620, title:'Pod at Dusk', location:'Kizingo Coast, Kenya', species:'Tursiops aduncus', exif:'400mm · f/6.3 · 1/1600s'},
+    {cat:'macro', seed:'frost-feather-22', h:560, title:'Frost on Feather', location:'Svalbard, Norway', species:'Unidentified plumage', exif:'100mm macro · f/8 · 1/250s'},
+    {cat:'conservation', seed:'community-meeting-23', h:820, title:'The Conservancy Meeting', location:'Northern Rangelands, Kenya', species:'—', exif:'50mm · f/2.8 · 1/250s'},
+    {cat:'expeditions', seed:'amboseli-camp-24', h:680, title:'Camp Before Dawn', location:'Amboseli, Kenya', species:'—', exif:'24mm · f/4 · 1/15s'}
+  ];
+
+  var masonry = document.getElementById('masonry');
+  var filterBar = document.getElementById('filterBar');
+
+  function renderGallery(filter){
+    masonry.innerHTML = '';
+    var visible = [];
+    gallery.forEach(function(item, i){
+      if(filter !== 'all' && item.cat !== filter) return;
+      visible.push(i);
+      var el = document.createElement('div');
+      el.className = 'g-item';
+      el.setAttribute('data-index', i);
+      el.innerHTML =
+        '<img loading="lazy" src="https://picsum.photos/seed/'+item.seed+'/700/'+item.h+'" alt="'+item.title+' — '+CATS[item.cat]+'">'+
+        '<div class="g-cap"><div class="t">'+item.title+'</div><div class="l">'+item.location+'</div></div>';
+      el.addEventListener('click', function(){ openLightbox(i, visible); });
+      masonry.appendChild(el);
+    });
+    requestAnimationFrame(function(){
+      observeReveal(masonry.querySelectorAll('.g-item'));
+    });
+  }
+
+  filterBar.addEventListener('click', function(e){
+    var btn = e.target.closest('.filter-btn');
+    if(!btn) return;
+    filterBar.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    renderGallery(btn.getAttribute('data-filter'));
+  });
+
+  /* ---------------- Reveal on scroll (lazy fade-in) ---------------- */
+  var revealObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('in');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.08, rootMargin:'0px 0px -40px 0px'});
+
+  function observeReveal(nodeList){
+    nodeList.forEach(function(n){ revealObserver.observe(n); });
+  }
+
+  renderGallery('all');
+
+  /* ---------------- Lightbox ---------------- */
+  var lightbox = document.getElementById('lightbox');
+  var lbImage = document.getElementById('lbImage');
+  var lbTitle = document.getElementById('lbTitle');
+  var lbLocation = document.getElementById('lbLocation');
+  var lbSpecies = document.getElementById('lbSpecies');
+  var lbExif = document.getElementById('lbExif');
+  var lbCount = document.getElementById('lbCount');
+  var lbClose = document.getElementById('lbClose');
+  var lbPrev = document.getElementById('lbPrev');
+  var lbNext = document.getElementById('lbNext');
+
+  var currentSet = [];   // list of gallery indices currently navigable
+  var currentPos = 0;    // position within currentSet
+  var currentSource = gallery; // gallery or a story's own image list
+
+  function openLightbox(index, set, sourceArray){
+    currentSource = sourceArray || gallery;
+    currentSet = set || currentSource.map(function(_,i){return i;});
+    currentPos = currentSet.indexOf(index);
+    if(currentPos === -1) currentPos = 0;
+    renderLbFrame();
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox(){
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function renderLbFrame(){
+    var idx = currentSet[currentPos];
+    var item = currentSource[idx];
+    lbImage.src = 'https://picsum.photos/seed/'+item.seed+'/1400/'+Math.round(item.h*1.5);
+    lbImage.alt = item.title;
+    lbTitle.textContent = item.title;
+    lbLocation.textContent = item.location || '';
+    lbSpecies.textContent = item.species && item.species !== '—' ? item.species : '';
+    lbExif.textContent = item.exif || '';
+    lbCount.textContent = (currentPos+1) + ' / ' + currentSet.length;
+  }
+  function lbStep(dir){
+    currentPos = (currentPos + dir + currentSet.length) % currentSet.length;
+    renderLbFrame();
+  }
+
+  lbClose.addEventListener('click', closeLightbox);
+  lbPrev.addEventListener('click', function(){ lbStep(-1); });
+  lbNext.addEventListener('click', function(){ lbStep(1); });
+  lightbox.addEventListener('click', function(e){ if(e.target === lightbox) closeLightbox(); });
+
+  document.addEventListener('keydown', function(e){
+    if(!lightbox.classList.contains('open')) return;
+    if(e.key === 'Escape') closeLightbox();
+    if(e.key === 'ArrowLeft') lbStep(-1);
+    if(e.key === 'ArrowRight') lbStep(1);
+  });
+
+  /* Swipe gestures */
+  var touchStartX = null;
+  lightbox.addEventListener('touchstart', function(e){ touchStartX = e.changedTouches[0].clientX; }, {passive:true});
+  lightbox.addEventListener('touchend', function(e){
+    if(touchStartX === null) return;
+    var dx = e.changedTouches[0].clientX - touchStartX;
+    if(Math.abs(dx) > 40){ lbStep(dx < 0 ? 1 : -1); }
+    touchStartX = null;
+  }, {passive:true});
+
+  /* ---------------- Featured Stories ---------------- */
+  var stories = [
+    {
+      title:'The Elephants of Amboseli', location:'Amboseli, Kenya', date:'2025',
+      text:'Following a single matriarchal family across a dry season, against the backdrop of Kilimanjaro, to document how the herd reads a shrinking waterline.',
+      cover:'amboseli-cover', context:'Amboseli\'s elephant families are among the most closely studied on Earth — this essay tracks how drought years reshape their movement.',
+      images:[
+        {seed:'amboseli-1', h:800, title:'First Light on the Swamp', location:'Amboseli, Kenya'},
+        {seed:'amboseli-2', h:700, title:'The Matriarch Leads', location:'Amboseli, Kenya'},
+        {seed:'amboseli-3', h:900, title:'Kilimanjaro Beyond', location:'Amboseli, Kenya'},
+        {seed:'amboseli-4', h:650, title:'Dust Bath', location:'Amboseli, Kenya'},
+        {seed:'amboseli-5', h:780, title:'Evening Crossing', location:'Amboseli, Kenya'}
+      ]
+    },
+    {
+      title:'Life Along the Coral Reef', location:'Watamu, Kenya', date:'2024',
+      text:'Three weeks below the surface of a marine park recovering from bleaching, documenting the slow return of colour and the fish that follow it.',
+      cover:'reef-cover', context:'Watamu Marine Park has seen partial reef recovery since 2020 — this series documents both resilience and continued fragility.',
+      images:[
+        {seed:'reef-1', h:700, title:'Coral in Recovery', location:'Watamu Marine Park, Kenya'},
+        {seed:'reef-2', h:850, title:'School at Midwater', location:'Watamu Marine Park, Kenya'},
+        {seed:'reef-3', h:620, title:'Anemone Detail', location:'Watamu Marine Park, Kenya'},
+        {seed:'reef-4', h:760, title:'Turtle on Patrol', location:'Watamu Marine Park, Kenya'}
+      ]
+    },
+    {
+      title:'The Last Light of the Arctic', location:'Svalbard, Norway', date:'2024',
+      text:'A month aboard an expedition vessel tracing retreating sea ice, and the animals whose entire calendar is built around its edge.',
+      cover:'arctic-cover', context:'Sea ice extent around Svalbard has declined significantly over the past two decades, compressing the hunting season for ice-dependent species.',
+      images:[
+        {seed:'arctic-1', h:780, title:'The Ice Edge', location:'Svalbard, Norway'},
+        {seed:'arctic-2', h:660, title:'Midnight Sun', location:'Svalbard, Norway'},
+        {seed:'arctic-3', h:900, title:'Tracks in Snow', location:'Svalbard, Norway'},
+        {seed:'arctic-4', h:700, title:'Glacier Calving', location:'Svalbard, Norway'}
+      ]
+    },
+    {
+      title:'Birds of the Rift Valley', location:'Rift Valley Lakes, Kenya', date:'2023',
+      text:'A season moving between the Rift Valley\'s soda lakes, following the flamingo migration and the raptors that trail it.',
+      cover:'riftbirds-cover', context:'The Rift Valley\'s alkaline lakes support one of the largest concentrations of flamingos on Earth, sensitive to shifting water chemistry.',
+      images:[
+        {seed:'riftbirds-1', h:620, title:'Flamingo Line', location:'Lake Nakuru, Kenya'},
+        {seed:'riftbirds-2', h:820, title:'Fish Eagle Dive', location:'Lake Naivasha, Kenya'},
+        {seed:'riftbirds-3', h:700, title:'Pelican Formation', location:'Lake Elementaita, Kenya'},
+        {seed:'riftbirds-4', h:760, title:'Storks at Dusk', location:'Lake Bogoria, Kenya'}
+      ]
+    }
+  ];
+
+  var storiesGrid = document.getElementById('storiesGrid');
+  stories.forEach(function(story, si){
+    var card = document.createElement('div');
+    card.className = 'story-card';
+    card.innerHTML =
+      '<img loading="lazy" src="https://picsum.photos/seed/'+story.cover+'/900/700" alt="'+story.title+'">'+
+      '<div class="story-body">'+
+        '<span class="field-tag">'+story.location+' · '+story.date+'</span>'+
+        '<h3>'+story.title+'</h3>'+
+        '<p>'+story.text+'</p>'+
+        '<span class="story-link">View the Full Story →</span>'+
+      '</div>';
+    card.addEventListener('click', function(){
+      openLightbox(0, story.images.map(function(_,i){return i;}), story.images);
+    });
+    storiesGrid.appendChild(card);
+  });
+
+  /* ---------------- Journal cards ---------------- */
+  var journal = [
+    {seed:'journal-1', title:'Three Days Waiting for the Migration', date:'June 2026', text:'Notes from a river crossing that almost didn\'t happen — and the value of doing nothing for seventy-two hours.'},
+    {seed:'journal-2', title:'Packing for Cold Water Work', date:'April 2026', text:'A field kit breakdown for housing, batteries, and staying warm on long dive days near the ice edge.'},
+    {seed:'journal-3', title:'Notes on a Snare Line', date:'February 2026', text:'A short dispatch from a ranger patrol, and what it means to photograph conservation work rather than wildlife alone.'}
+  ];
+  var journalGrid = document.getElementById('journalGrid');
+  journal.forEach(function(j){
+    var card = document.createElement('div');
+    card.className = 'journal-card';
+    card.innerHTML =
+      '<img loading="lazy" src="https://picsum.photos/seed/'+j.seed+'/500/380" alt="'+j.title+'">'+
+      '<div class="jc-body">'+
+        '<span class="field-tag">'+j.date+'</span>'+
+        '<h4>'+j.title+'</h4>'+
+        '<p>'+j.text+'</p>'+
+      '</div>';
+    journalGrid.appendChild(card);
+  });
+
+  /* ---------------- Forms (static, no backend) ---------------- */
+  document.getElementById('contactForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    document.getElementById('formMsg').classList.add('show');
+    e.target.reset();
+  });
+  document.getElementById('newsForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    document.getElementById('newsMsg').classList.add('show');
+    e.target.reset();
+  });
+
+  /* ---------------- Footer year ---------------- */
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+})();
+</script>
+</body>
+</html>
